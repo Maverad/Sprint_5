@@ -13,3 +13,4 @@ class AuthLocators:
     account_already_exists_button = (By.XPATH, ".//button[text()='Уже есть аккаунт']")
     email_validation_error = (By.XPATH, ".//span[text()='Ошибка']")
     inputs_border = (By.XPATH, ".//div[@class='input_inputError__fLUP9']")
+

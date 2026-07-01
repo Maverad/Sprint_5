@@ -14,16 +14,8 @@ def driver():
     driver.quit()
 
 @pytest.fixture
-def generate() -> dict:
-    data = {}
-    data['email'] = test_data.GenerateData.generate_email()
-    data['password']= test_data.GenerateData.generate_password()
-    return data
-
-@pytest.fixture
-def driver_with_reg():
-    driver = webdriver.Chrome()
-    driver.get(test_data.Urls.main_url)
+def driver_with_reg(driver):
+    WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AuthLocators.log_in_and_registration_button)))
     driver.find_element(*AuthLocators.log_in_and_registration_button).click()
     WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AuthLocators.log_in_button)))
     driver.find_element(*AuthLocators.email_input).send_keys(test_data.AuthorizationTestData.test_acc_email)
@@ -31,4 +23,3 @@ def driver_with_reg():
     driver.find_element(*AuthLocators.log_in_button).click()
     WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((SuccessLoginLocators.account_name_after_authorization)))
     yield driver
-    driver.quit()

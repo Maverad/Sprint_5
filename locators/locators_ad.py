@@ -14,3 +14,4 @@ class AdLocators:
     ad_dropdown_city_choise_button = (By.XPATH, ".//span[text()='Санкт-Петербург']")
     ad_publish = (By.XPATH, ".//button[text()='Опубликовать']")
     created_ad = (By.XPATH, ".//img[@class='picture']")
+
