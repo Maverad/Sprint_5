@@ -23,3 +23,4 @@ def driver_with_reg(driver):
     driver.find_element(*AuthLocators.log_in_button).click()
     WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((SuccessLoginLocators.account_name_after_authorization)))
     yield driver
+

@@ -19,3 +19,4 @@ class GenerateData:
         for i in range(3):
             password += f'{now.second}{now.day}'
         return f'A{password}@z'
+

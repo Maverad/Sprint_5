@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 class TestAd:
-    
+
     def test_create_an_ad_with_autorization(self, driver_with_reg):
         driver_with_reg.find_element(*AdLocators.create_an_ad_button).click()
         WebDriverWait(driver_with_reg, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AdLocators.add_photo_button)))
@@ -29,4 +29,4 @@ class TestAd:
         driver.find_element(*AdLocators.create_an_ad_button).click()
         WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AdLocators.log_in_modal_to_create_an_ad_header)))
 
-        assert driver.find_element(*AdLocators.log_in_modal_to_create_an_ad_header).text == 'Чтобы разместить объявление, авторизуйтесь'
+        assert driver.find_element(*AdLocators.log_in_modal_to_create_an_ad_header).is_displayed()

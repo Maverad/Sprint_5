@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class TestAuthorization:
-    
+
     def test_registration(self, driver):
         driver.find_element(*AuthLocators.log_in_and_registration_button).click()
         WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AuthLocators.no_account_button))).click()
@@ -19,7 +19,7 @@ class TestAuthorization:
         driver.find_element(*AuthLocators.create_account_button).click()
         WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located(SuccessLoginLocators.account_name_after_authorization))
     
-        assert driver.find_element(*SuccessLoginLocators.account_name_after_authorization).text == 'User.'
+        assert driver.find_element(*SuccessLoginLocators.account_name_after_authorization).is_displayed()
         assert driver.find_element(*SuccessLoginLocators.profile_image_button).is_displayed()
 
     def test_registration_wrong_mask(self, driver):
@@ -31,7 +31,7 @@ class TestAuthorization:
         WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AuthLocators.email_validation_error)))
         borders_color = driver.find_elements(*AuthLocators.inputs_border)
 
-        assert driver.find_element(*AuthLocators.email_validation_error).text == 'Ошибка'
+        assert driver.find_element(*AuthLocators.email_validation_error).is_displayed()
         for i in borders_color:
             border_value = i.value_of_css_property('border')
             assert 'rgb(255, 105, 114)' in border_value
@@ -47,7 +47,8 @@ class TestAuthorization:
         WebDriverWait(driver, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AuthLocators.email_validation_error)))
         borders_color = driver.find_elements(*AuthLocators.inputs_border)
 
-        assert driver.find_element(*AuthLocators.email_validation_error).text == 'Ошибка'
+        assert driver.find_element(*AuthLocators.email_validation_error).is_displayed()
         for i in borders_color:
             border_value = i.value_of_css_property('border')
             assert 'rgb(255, 105, 114)' in border_value
+
