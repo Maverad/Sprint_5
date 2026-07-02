@@ -24,6 +24,7 @@ class TestAd:
         ActionChains(driver_with_reg).move_to_element(element).click().perform()
         WebDriverWait(driver_with_reg, test_data.Timeouts.base_timeout).until(EC.visibility_of_element_located((AdLocators.created_ad)))
 
+        assert driver_with_reg.find_element(*AdLocators.created_ad).is_displayed()
         assert driver_with_reg.find_element(*AdLocators.created_ad).get_attribute('alt') == test_data.AdData.name
 
     def test_create_an_ad_with_no_autorization(self, driver):
