@@ -1,9 +1,8 @@
-
 class Urls:
     main_url = "https://qa-desk.education-services.ru/"
 
 class AuthorizationTestData:
-    test_acc_email = "testik@mail.com"
+    test_acc_email = "test111@ya.ru"
     test_acc_password = "123"
 
 class Timeouts:

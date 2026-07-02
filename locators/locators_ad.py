@@ -13,5 +13,5 @@ class AdLocators:
     ad_dropdown_city_button = (By.XPATH, "(.//button[@class='dropDownMenu_arrowDown__pfGL1 dropDownMenu_noDefault__wSKsP'])[2]")
     ad_dropdown_city_choise_button = (By.XPATH, ".//span[text()='Санкт-Петербург']")
     ad_publish = (By.XPATH, ".//button[text()='Опубликовать']")
-    created_ad = (By.XPATH, "(.//img[@class='picture'])[1]")
+    created_ad = (By.XPATH, "(.//img[@class='picture'])[last()]")
 
