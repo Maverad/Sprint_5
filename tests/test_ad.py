@@ -1,4 +1,3 @@
-from conftest import driver
 from locators.locators_success_login import SuccessLoginLocators 
 from locators.locators_ad import AdLocators
 import test_data
